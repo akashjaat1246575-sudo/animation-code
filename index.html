@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special For You ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  overflow:hidden; background:linear-gradient(135deg,#16001f,#35002f,#12001c);
+  color:white; font-family:Arial,sans-serif;
+}
+.card{
+  width:min(92vw,520px); padding:32px 22px; text-align:center;
+  border:1px solid rgba(255,255,255,.2); border-radius:28px;
+  background:rgba(255,255,255,.08); backdrop-filter:blur(10px);
+  box-shadow:0 20px 70px rgba(0,0,0,.45);
+}
+h1{margin:0 0 8px;font-size:clamp(28px,8vw,46px)}
+.sub{opacity:.85;margin-bottom:28px}
+.names{display:grid;gap:14px}
+.name{
+  font-size:clamp(24px,7vw,36px); font-weight:700;
+  padding:15px; border-radius:18px;
+  background:rgba(255,255,255,.1);
+  animation:pulse 1.8s infinite;
+}
+.name:nth-child(2){animation-delay:.3s}
+.name:nth-child(3){animation-delay:.6s}
+.heart{font-size:38px;display:inline-block;animation:beat .8s infinite}
+.footer{margin-top:25px;font-size:16px;opacity:.8}
+.float{
+  position:fixed; bottom:-40px; font-size:22px; animation:float 6s linear infinite;
+  pointer-events:none;
+}
+@keyframes beat{50%{transform:scale(1.25)}}
+@keyframes pulse{50%{transform:scale(1.03);box-shadow:0 0 25px rgba(255,100,200,.25)}}
+@keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="heart">❤️</div>
+  <h1>Special For You</h1>
+  <div class="sub">A little animation made with C++ inspiration ✨</div>
+  <div class="names">
+    <div class="name">Bhawna ❤️</div>
+    <div class="name">Monika ❤️</div>
+    <div class="name">Tanvi ❤️</div>
+  </div>
+  <div class="footer">Best Friends Forever ✨</div>
+</div>
+
+<script>
+function makeHeart(){
+  const h=document.createElement("div");
+  h.className="float";
+  h.textContent=["❤️","💖","💕","✨"][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(4+Math.random()*4)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+}
+setInterval(makeHeart,500);
+</script>
+</body>
+</html>
